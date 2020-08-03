@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>데이터 통신에 대한 공부</title>
+  </head>
+  <body>
+    <div id="app">
+      <content-component v-bind:propsdata="message"></content-component>
+      <button-component v-on:change-event="fuc"></button-component>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.component("content-component", {
+        props: ["propsdata"],
+        template: `<div>{{propsdata}}</div>`,
+      });
+      Vue.component("button-component", {
+        template: '<button v-on:click="change">내용바꾸기</button>',
+        methods: {
+          change: function () {
+            this.$emit("change-event");
+          },
+        },
+      });
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            message: "Hello, Vue.js",
+          };
+        },
+        methods: {
+          fuc() {
+            this.message = "a";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
