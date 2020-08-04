@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../assets/css/travel.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Introduce</title>
+  </head>
+  <body>
+    <div id="app">
+      <vue-header></vue-header>
+      <vue-navigation></vue-navigation>
+      <vue-main></vue-main>
+      <vue-footer></vue-footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <script>
+      const home = {
+        template: `<img src="../assets/images/welcome.jpg">`,
+      };
+      const introduce = {
+        template: "<div>소개</div>",
+      };
+      const photo = {
+        template: "사진이다",
+      };
+      const option = {
+        template: "옵션이다",
+      };
+      const routes = [
+        {
+          path: "/",
+          component: home,
+        },
+        {
+          path: "/introduce",
+          component: introduce,
+        },
+        {
+          path: "/photo",
+          component: photo,
+        },
+        {
+          path: "/option",
+          component: option,
+        },
+      ];
+      const router = new VueRouter({
+        routes,
+      });
+
+      Vue.component("vue-header", {
+        template: `
+        <header>
+          <h1>의정부 토박이</h1>
+          <hr/>
+        </header>`,
+      });
+      Vue.component("vue-navigation", {
+        template: `
+        <nav>
+          <ul>
+            <li><router-link to="/introduce">소개</router-link></li>
+            <li><router-link to="/photo">사진</router-link></li>
+            <li><router-link to="/option">옵션</router-link></li>
+          </ul>
+        </nav>
+        `,
+      });
+      Vue.component("vue-main", {
+        template: `
+        <main>
+          <router-view></router-view>
+        </main>
+        `,
+      });
+      Vue.component("vue-footer", {
+        template: "<footer>여기는 푸터</footer>",
+      });
+      const app = new Vue({
+        el: "#app",
+        router,
+      });
+    </script>
+  </body>
+</html>

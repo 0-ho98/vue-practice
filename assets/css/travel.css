@@ -1,0 +1,37 @@
+:root {
+  /* font-size */
+  --large-font-size: 20px;
+  --reqular-font-size: 16px;
+  --small-font-size: 12px;
+  /* spacing */
+  --large-spacing: 16px;
+  --reqular-spacing: 12px;
+  --small-spacing: 8px;
+  /* color */
+  --black-color: black;
+  --white-color: white;
+}
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nanum Myeongjo", serif;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+header h1 {
+  text-align: center;
+}
+nav {
+  height: 50px;
+}
+nav ul {
+  width: 25rem;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
